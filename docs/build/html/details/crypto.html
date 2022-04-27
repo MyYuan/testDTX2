@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Crypto &#8212; PaddleDTX  文档</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="我们的团队" href="../team.html" />
+    <link rel="prev" title="3. XuperDB" href="XuperDB.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PaddleDTX  文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  整体介绍
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/introduction.html">
+   1. 系统介绍
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/concepts.html">
+   2. 基本概念
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/ongoing.html">
+   3. 正在进行中
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  快速入门
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quickstart/quickstart.html">
+   1. 快速安装
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quickstart/compile-install.html">
+   2. 编译和安装
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quickstart/client.html">
+   3. 客户端工具
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quickstart/linear.html">
+   4. 案例应用-线性回归算法测试
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quickstart/logistic.html">
+   5. 案例应用-逻辑回归算法测试
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  系统详解
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="framework.html">
+   1. 部署架构
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DAI.html">
+   2. Distributed AI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="XuperDB.html">
+   3. XuperDB
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Crypto
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  团队
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../team.html">
+   我们的团队
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  参与开发
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../join.html">
+   参与开发&amp;测试
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  参考文献
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference.html">
+   参考文献
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/details/crypto.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   4.1. 数据隐私保护
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4.2. 机器学习算法
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.2.1. 1.1 多元线性回归
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     4.2.2. 1.2 多元逻辑回归
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   4.3. 纵向联邦学习
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4.3.1. 2.1 数据准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     4.3.2. 2.2 样本对齐
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     4.3.3. 2.3 训练过程
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     4.3.4. 2.4 预测过程
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Crypto</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   4.1. 数据隐私保护
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4.2. 机器学习算法
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.2.1. 1.1 多元线性回归
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     4.2.2. 1.2 多元逻辑回归
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   4.3. 纵向联邦学习
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4.3.1. 2.1 数据准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     4.3.2. 2.2 样本对齐
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     4.3.3. 2.3 训练过程
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     4.3.4. 2.4 预测过程
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="crypto">
+<h1><span class="section-number">4. </span>Crypto<a class="headerlink" href="#crypto" title="永久链接至标题">#</a></h1>
+<p>PaddleDTX 的 crypto 模块实现了若干机器学习算法和对应的分布式改造，为分布式计算网络提供了算法支撑。</p>
+<p>目前开源了纵向联邦学习算法，包括多元线性回归和多元逻辑回归。同时支持秘密分享、不经意传输、加法同态加密、隐私求交等联邦学习依赖的工具。</p>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>数据隐私保护<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h2>
+<p>随着大数据和机器学习技术地不断发展，人工智能在各个领域实现了商业落地。然而，数据孤岛和数据隐私保护问题普遍存在。企业间渴望通过协作计算发挥各自数据的价值，又担心泄露用户敏感数据和企业机密信息。</p>
+<p>为实现数据的跨企业协同计算，同时保护数据的隐私，联邦学习技术应运而生。
+联邦学习支持多个参与方利用己方数据共同建模和预测，数据在各方本地进行处理，通过中间参数的加密传输和计算，获得最终的模型或预测结果。在这个过程中，各方原始数据的隐私得到了保护，真正实现了数据可用不可见。</p>
+<p>联邦学习分为横向联邦学习、纵向联邦学习和联邦迁移学习：</p>
+<ul class="simple">
+<li><p><strong>横向联邦学习</strong>：参与方的特征重叠较多，而样本重叠较少。将样本按照横向切分，取出各方特征相同而样本不同的那部分数据进行训练；</p></li>
+<li><p><strong>纵向联邦学习</strong>：参与方的样本重叠较多，而特征重叠较少。将样本按照纵向切分，取出各方样本相同而特征不同的那部分数据进行训练；</p></li>
+<li><p><strong>联邦迁移学习</strong>：参与方样本与特征重叠都较少，该场景下不对数据进行切分，而是利用迁移学习来克服数据或标签不足的情况。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2. </span>机器学习算法<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
+<p>PaddleDTX 目前已经开源多元线性回归和多元逻辑回归算法，决策树、神经网络等更丰富的机器学习算法即将开源。</p>
+<section id="id3">
+<h3><span class="section-number">4.2.1. </span>1.1 多元线性回归<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
+<p>多元线性回归用来描述一个变量受多个因素影响，且他们的关系可以用多元线性方程表示的场景。如房屋价格受房屋大小、楼层数、周边环境等因素影响。</p>
+<p>线性回归的模型可以用如下表达式描述：</p>
+<p>y = θ<sub>0</sub> + θ<sub>1</sub>X<sub>1</sub> + θ<sub>2</sub>X<sub>2</sub> + … + θ<sub>n</sub>X<sub>n</sub></p>
+<p>其中，目标特征值由n个变量乘以对应系数再加上常数项计算得到。学习过程就是通过迭代找到合适的系数，使得模型在训练集合的误差尽量小。</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">4.2.2. </span>1.2 多元逻辑回归<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
+<p>不同于多元线性回归，多元逻辑回归的目标特征值是离散的，通常定义为{1,0}，分别表示目标特征是否为指定值。如利用鸢尾花卉数据集，可以训练模型来判断给定的样本是否为山鸢尾。</p>
+<p>逻辑回归的模型可以用如下表达式描述(Sigmoid函数)：</p>
+<p>y = 1 / (1 + e<sup>-θX</sup>)</p>
+<p>该模型是基于线性回归模型变化得到的，模型连续可导，且可以保证目标特征是(0,1)之间的数值，越接近1表明样本是指定值的概率越大。学习过程就是通过迭代找到合适的参数θ，使得模型在训练集合的误差尽量小。</p>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">4.3. </span>纵向联邦学习<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
+<p>PaddleDTX 目前已经开源两方的纵向联邦学习算法，包括多元线性回归和多元逻辑回归。多方横向联邦学习和多方纵向联邦学习相关算法即将开源，敬请期待。</p>
+<p>纵向联邦训练和预测步骤如下：</p>
+<img src='../_static/vertical_learning.png' width = "100%" height = "100%" align="middle"/><section id="id6">
+<h3><span class="section-number">4.3.1. </span>2.1 数据准备<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
+<p>计算任务会指定参与方的样本数据，数据存在去中心化存储系统(XuperDB)中。任务启动前，任务计算方(即数据持有方)需要从XuperDB获取自己的样本数据。</p>
+</section>
+<section id="id7">
+<h3><span class="section-number">4.3.2. </span>2.2 样本对齐<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
+<p>纵向的模型训练或预测任务，都需要对数据进行样本对齐，即：根据各自样本ID找到多个参与方的样本交集，用交集样本进行训练或预测。</p>
+<p>项目采用了PSI(隐私求交)技术，可以在不泄露各方样本ID的前提下，实现样本求交的功能。</p>
+</section>
+<section id="id8">
+<h3><span class="section-number">4.3.3. </span>2.3 训练过程<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
+<p>模型训练是多次迭代和交互的过程，依赖于两方数据的协同计算，需要双方不断传递中间参数来计算出各自的模型。</p>
+<p>为保护样本数据的隐私，迭代过程的模型中间参数采用Paillier同态算法进行加密，Paillier支持密文加法和数乘操作。</p>
+</section>
+<section id="id9">
+<h3><span class="section-number">4.3.4. </span>2.4 预测过程<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h3>
+<p>预测任务需要指定模型，因此在预测任务启动前，指定的模型训练任务必须已经成功完成。模型分别存储在训练双方的本地，在预测时分别利用各自的模型进行计算，并汇总得到最终结果。</p>
+<p>对于线性回归算法，预测结果汇总后需要进行逆标准化操作，这个操作只有拥有标签的那一方才能完成，因此需要将预测结果汇总到标签方，由标签方计算最终的预测结果，并将结果以文件的形式存到XuperDB中，供需求方获取。</p>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="XuperDB.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>XuperDB</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../team.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">我们的团队</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By baidu<br/>
+  
+      &copy; Copyright 2021, baidu.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

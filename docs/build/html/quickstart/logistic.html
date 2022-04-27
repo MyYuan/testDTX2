@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5. 案例应用-逻辑回归算法测试 &#8212; PaddleDTX  文档</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1. 部署架构" href="../details/framework.html" />
+    <link rel="prev" title="4. 案例应用-线性回归算法测试" href="linear.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PaddleDTX  文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  整体介绍
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/introduction.html">
+   1. 系统介绍
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/concepts.html">
+   2. 基本概念
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/ongoing.html">
+   3. 正在进行中
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  快速入门
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   1. 快速安装
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="compile-install.html">
+   2. 编译和安装
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="client.html">
+   3. 客户端工具
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear.html">
+   4. 案例应用-线性回归算法测试
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. 案例应用-逻辑回归算法测试
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  系统详解
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/framework.html">
+   1. 部署架构
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/DAI.html">
+   2. Distributed AI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/XuperDB.html">
+   3. XuperDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/crypto.html">
+   4. Crypto
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  团队
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../team.html">
+   我们的团队
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  参与开发
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../join.html">
+   参与开发&amp;测试
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  参考文献
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference.html">
+   参考文献
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/quickstart/logistic.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   5.1. 案例简介
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   5.2. 测试脚本说明
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   5.3. 上传样本文件
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   5.4. 训练任务
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   5.5. 预测任务
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   5.6. 模型评估
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>案例应用-逻辑回归算法测试</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   5.1. 案例简介
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   5.2. 测试脚本说明
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   5.3. 上传样本文件
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   5.4. 训练任务
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   5.5. 预测任务
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   5.6. 模型评估
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="id1">
+<h1><span class="section-number">5. </span>案例应用-逻辑回归算法测试<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
+<p>在本节中，我们使用 PaddleDTX 解决鸢尾花的分类问题，帮助您更好的理解 PaddleDTX。</p>
+<p>您可以参考 <a class="reference internal" href="quickstart.html"><span class="doc">快速安装</span></a> 来准备 PaddleDTX 的环境。</p>
+<section id="id2">
+<h2><span class="section-number">5.1. </span>案例简介<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
+<p>鸢尾花卉数据集是常用的分类实验数据集，也来源于UCI 机器学习数据库，其中鸢尾花的种类分为三种：</p>
+<ul class="simple">
+<li><p>山鸢尾 (Iris-setosa)</p></li>
+<li><p>变色鸢尾 (Iris-versicolor)</p></li>
+<li><p>维吉尼亚鸢尾 (Iris-virginica)</p></li>
+</ul>
+<p>在每一条样本数据中包含了四项特征值和一个标签值，标签值为鸢尾花的种类，特征值包括：</p>
+<ul class="simple">
+<li><p>花瓣长度 (Petal length)</p></li>
+<li><p>花瓣宽度 (Petal width)</p></li>
+<li><p>花萼长度 (Sepal length)</p></li>
+<li><p>花萼宽度 (Sepal width)</p></li>
+</ul>
+<p>鸢尾花的分类问题是二分类逻辑回归的经典案例。我们利用逻辑回归的算法构建模型，根据鸢尾花的花萼和花瓣大小来区分鸢尾花的品种。</p>
+<p>我们从数据集中随机选取了部分数据作为测试集，其余为训练集，训练集为模型训练使用的样本数据，测试集用来验证我们的模型。
+同时, 我们又将数据集纵向拆分为两部分，每部分包含不同的特征变量，分别由不同的数据持有方 A 和 B 进行持有，通过 id 来标识同一条样本。
+本案例我们模拟分别持有部分特征变量数据的两方进行联合训练和预测。</p>
+<p>具体样本文件说明如下：</p>
+<ol class="simple">
+<li><p>训练任务：任务执行节点 A 参与模型训练样本文件 <a class="reference external" href="https://github.com/PaddlePaddle/PaddleDTX/blob/master/dai/mpc/testdata/vl/logic_iris_plants/train_dataA.csv">train_dataA.csv</a> ，任务执行节点 B 参与模型训练样本文件 <a class="reference external" href="https://github.com/PaddlePaddle/PaddleDTX/blob/master/dai/mpc/testdata/vl/logic_iris_plants/train_dataB.csv">train_dataB.csv</a></p></li>
+<li><p>预测任务：任务执行节点 A 参与模型预测样本文件 <a class="reference external" href="https://github.com/PaddlePaddle/PaddleDTX/blob/master/dai/mpc/testdata/vl/logic_iris_plants/predict_dataA.csv">predict_dataA.csv</a> ，任务执行节点 B 参与模型预测样本文件 <a class="reference external" href="https://github.com/PaddlePaddle/PaddleDTX/blob/master/dai/mpc/testdata/vl/logic_iris_plants/predict_dataB.csv">predict_dataB.csv</a></p></li>
+</ol>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.2. </span>测试脚本说明<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
+<p>参考 <a class="reference internal" href="linear.html"><span class="doc">案例应用-线性回归算法测试-测试脚本说明</span></a></p>
+</section>
+<section id="id4">
+<h2><span class="section-number">5.3. </span>上传样本文件<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
+<p>参考 <a class="reference internal" href="linear.html"><span class="doc">案例应用-线性回归算法测试-上传样本文件</span></a></p>
+<p>样本上传执行结果说明：</p>
+<ul class="simple">
+<li><p>Vertical logistic train sample files 值为数据持有方 A 上传 train_dataA.csv 和数据持有方 B 上传 train_dataB.csv 所得的鸢尾花品种分类样本文件ID</p></li>
+<li><p>Vertical logistic prediction sample files 值为数据持有方 A 上传predict_dataA.csv和数据持有方 B 上传 predict_dataB.csv 所得的鸢尾花品种分类的样本文件ID</p></li>
+<li><p>upload_files.csv 存储了鸢尾花训练和预测所需的样本文件ID</p></li>
+</ul>
+<p>样本文件查看：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 数据持有方A查询train_dataA.csv文件：
+$ docker exec -it dataowner1.node.com sh -c &#39;./xdb-cli files getbyid -i 9fb28896-eb6c-48f2-b356-2ab342a2aa6d --host http://127.0.0.1:80&#39;
+
+# 数据持有方B查询train_dataB.csv文件：
+$ docker exec -it dataowner2.node.com sh -c &#39;./xdb-cli files getbyid -i 8b79fddd-3370-402c-ba9b-1f239156ec51 --host http://127.0.0.1:80&#39;
+
+# 数据持有方A查询predict_dataA.csv文件：
+$ docker exec -it dataowner1.node.com sh -c &#39;./xdb-cli files getbyid -i 96140537-8c7a-46cb-b2d3-0540e8cadc0e --host http://127.0.0.1:80&#39;
+
+# 数据持有方B查询predict_dataB.csv文件：
+$ docker exec -it dataowner2.node.com sh -c &#39;./xdb-cli files getbyid -i abacaded-afdd-419d-bc52-0d90b5641aa2 --host http://127.0.0.1:80&#39;
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2><span class="section-number">5.4. </span>训练任务<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
+<p>发布和启动训练任务：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># -f 取值样本上传upload_sample_files命令返回的Vertical logistic train sample files
+$ sh paddledtx_test.sh start_vl_logistic_train -f 9fb28896-eb6c-48f2-b356-2ab342a2aa6d,8b79fddd-3370-402c-ba9b-1f239156ec51
+
+# 命令返回
+Requester published logistic train task: TaskID: 95104913-c6cc-4520-bab1-2be814f0d81e
+</pre></div>
+</div>
+<p>命令执行说明</p>
+<ul class="simple">
+<li><p><strong>start_vl_logistic_train</strong> 命令会自动化执行如下3个步骤:</p>
+<ol class="simple">
+<li><p>计算需求方发布鸢尾花品种分类训练任务</p></li>
+<li><p>数据持有方A/B授权任务执行节点A/B确认任务</p></li>
+<li><p>计算需求方启动任务</p></li>
+</ol>
+</li>
+</ul>
+<p>每个步骤对应的客户端命令详情参考 <a class="reference internal" href="client.html"><span class="doc">操作 Distributed AI</span></a> 。</p>
+<p>查看训练任务：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sh paddledtx_test.sh gettaskbyid -i 95104913-c6cc-4520-bab1-2be814f0d81e
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2><span class="section-number">5.5. </span>预测任务<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
+<p>发布和启动预测任务：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># -f 取值样本上传upload_sample_files命令返回的Vertical logistic prediction sample files，-m 取值为训练任务返回的TaskID
+$ sh paddledtx_test.sh start_vl_logistic_predict -f 96140537-8c7a-46cb-b2d3-0540e8cadc0e,abacaded-afdd-419d-bc52-0d90b5641aa2 -m 95104913-c6cc-4520-bab1-2be814f0d81e
+
+# 命令返回
+Requester published logistic prediction task: TaskID: f86ff72b-fb94-4f8a-9797-9b42ae3ade84
+Accuracy of Iris plants prediction is: 1.00
+</pre></div>
+</div>
+<p>命令执行说明：</p>
+<ul class="simple">
+<li><p><strong>start_vl_logistic_predict</strong> 自动化执行如下6个步骤:</p>
+<ol class="simple">
+<li><p>计算需求方发布鸢尾花品种分类预测任务</p></li>
+<li><p>数据持有方A/B授权任务执行节点A/B确认任务</p></li>
+<li><p>计算需求方启动任务</p></li>
+<li><p>计算需求方下载预测结果</p></li>
+<li><p>计算模型的均方根误差</p></li>
+<li><p>计算预测的准确率</p></li>
+</ol>
+</li>
+</ul>
+<p>每个步骤对应的客户端命令详情参考 <a class="reference internal" href="client.html"><span class="doc">操作 Distributed AI</span></a> 。</p>
+</section>
+<section id="id7">
+<h2><span class="section-number">5.6. </span>模型评估<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h2>
+<p>通过预测任务，获得了模型的预测结果，我们将置信度设置为0.5，通过计算预测值与真实值的分类准确率来评估模型优劣。</p>
+<p>预测任务执行完成后，同时输出了鸢尾花品种分类模型的预测结果，在测试集上准确率为 100%。</p>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="linear.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>案例应用-线性回归算法测试</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../details/framework.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>部署架构</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By baidu<br/>
+  
+      &copy; Copyright 2021, baidu.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
