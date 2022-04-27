@@ -1,0 +1,998 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. 编译和安装 &#8212; PaddleDTX  文档</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3. 客户端工具" href="client.html" />
+    <link rel="prev" title="1. 快速安装" href="quickstart.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PaddleDTX  文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  整体介绍
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/introduction.html">
+   1. 系统介绍
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/concepts.html">
+   2. 基本概念
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/ongoing.html">
+   3. 正在进行中
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  快速入门
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   1. 快速安装
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. 编译和安装
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="client.html">
+   3. 客户端工具
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear.html">
+   4. 案例应用-线性回归算法测试
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logistic.html">
+   5. 案例应用-逻辑回归算法测试
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  系统详解
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/framework.html">
+   1. 部署架构
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/DAI.html">
+   2. Distributed AI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/XuperDB.html">
+   3. XuperDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../details/crypto.html">
+   4. Crypto
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  团队
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../team.html">
+   我们的团队
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  参与开发
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../join.html">
+   参与开发&amp;测试
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  参考文献
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference.html">
+   参考文献
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/quickstart/compile-install.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.1. 源码编译和安装
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     2.1.1. 环境准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     2.1.2. 源码编译
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     2.1.3. 网络部署
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker">
+   2.2. 通过 docker 安装
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     2.2.1. 环境准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     2.2.2. 制作镜像
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     2.2.3. 网络部署
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>编译和安装</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.1. 源码编译和安装
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     2.1.1. 环境准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     2.1.2. 源码编译
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     2.1.3. 网络部署
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker">
+   2.2. 通过 docker 安装
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     2.2.1. 环境准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     2.2.2. 制作镜像
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     2.2.3. 网络部署
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="id1">
+<h1><span class="section-number">2. </span>编译和安装<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>源码编译和安装<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
+<section id="id3">
+<h3><span class="section-number">2.1.1. </span>环境准备<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
+<p>PaddleDTX 使用 golang 进行开发，当您使用源码进行编译和安装时，首先需要准备源码以及编译的环境：</p>
+<ul>
+<li><p>系统环境, 推荐使用Linux或MacOS操作系统</p></li>
+<li><p>golang编译器, 推荐版本1.13+
+<a class="reference external" href="https://studygolang.com/dl">点击下载安装golang</a></p></li>
+<li><p>git源码下载工具
+<a class="reference external" href="https://git-scm.com/download">点击下载安装git</a></p></li>
+<li><p>make编译工具</p>
+<ul class="simple">
+<li><p>ubuntu:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install -y make
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>centos:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install -y make
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>macOS:
+通过iTunes下载安装xcode</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3><span class="section-number">2.1.2. </span>源码编译<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
+<ol>
+<li><p>下载源码</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/PaddlePaddle/PaddleDTX.git
+</pre></div>
+</div>
+</li>
+<li><p>编译XuperDB</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd PaddleDTX/xdb
+$ make
+</pre></div>
+</div>
+<p>编译产出为 output 文件夹，内容为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── conf
+│   ├── config-dataowner.toml
+│   └── config-storage.toml
+├── xdb                   //数据存储服务启动二进制,根据配置文件的不同有数据持有节点或存储节点两种类型
+└── xdb-cli               //数据存储服务操作客户端
+</pre></div>
+</div>
+</li>
+<li><p>编译Distributed AI</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ../dai
+$ make
+</pre></div>
+</div>
+<p>编译产出为 output 文件夹，内容为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── conf
+│   ├── config-cli.toml     //客户端配置,也可以使用config.toml作为客户端配置
+│   └── config.toml         //服务配置
+├── executor                //DAI任务执行节点服务启动二进制
+├── executor-cli            //DAI任务执行节点操作客户端
+└── requester-cli           //计算需求节点操作客户端
+</pre></div>
+</div>
+</li>
+<li><p>编译区块链合约</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ go build -o paddlempc ./blockchain/xchain/contract
+</pre></div>
+</div>
+<p>编译产出为 paddlempc 合约文件，为安装在xchain 区块链上的合约文件。</p>
+</li>
+</ol>
+</section>
+<section id="id5">
+<h3><span class="section-number">2.1.3. </span>网络部署<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
+<ol>
+<li><p>部署区块链网络</p>
+<p>PaddleDTX 使用区块链网络支撑计算层和去中心化存储网络，底层依赖可以使用同一个区块链网络。
+<br>
+这里使用百度超级链 xchain v3.9 作为底层区块链网络，可参考 <a class="reference external" href="https://xuper.baidu.com/n/xuperdoc/v3.9/quickstart.html">XuperChain环境部署</a> 来搭建区块链网络。
+<br>
+您需要了解如何创建合约账户、部署智能合约，详细参考 <a class="reference external" href="https://xuper.baidu.com/n/xuperdoc/v3.9/advanced_usage/create_contracts.html?highlight=native#native">部署 native 合约</a> ，更多内容请参考<a class="reference external" href="https://xuper.baidu.com/n/xuperdoc/index.html">XuperChain官方文档</a> 。
+<br>
+合约安装过程如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 定义合约账户和合约名称
+$ export contractAccount=&#39;1234567890123456&#39;
+$ export contractName=&#39;paddlempc&#39;
+
+# 创建区块链账户, 并转 token
+$ ./xchain-cli account newkeys --strength 1 -o ukeys
+$ export address=`cat ./ukeys/address`
+$ ./xchain-cli transfer --to $address --amount 1000000000000
+
+# 创建区块链合约账户, 并转 token
+$ ./xchain-cli account new --account $contractAccount --fee 1000 --keys ./ukeys
+
+# 给合约账户转 token
+$ ./xchain-cli transfer --to XC${contractAccount}@xuper --amount 100000000000 --keys ./ukeys
+
+# 安装合约
+$ ./xchain-cli native deploy --account XC${contractAccount}@xuper --runtime go -a &#39;{&quot;creator&quot;:&quot;XC${contractAccount}@xuper&quot;}&#39; --cname $contractName ./$contractName --fee 19267894 --keys ./ukeys
+
+# 查询合约安装的状态
+$ ./xchain-cli contract query $contractName
+</pre></div>
+</div>
+</li>
+<li><p>部署 XuperDB</p>
+<p>每一个 XuperDB 的节点都有一对公私钥，用来标识节点的账户，公私钥可以通过如下XuperDB的客户端命令进行获取：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./xdb-cli key genkey -o ./keys
+</pre></div>
+</div>
+<p>请妥善保存您创建的公私钥对，在后续的配置及命令行使用时您将会频繁的用到它。
+<br><br>
+XuperDB 包含两种类型的节点服务，数据持有节点和存储节点，我们需要分别启动这两种服务。为了方便，我们这里两种类型的服务分别启动一个。
+首先进入到 xdb 的编译产出 output 文件中：</p>
+<ol>
+<li><p>启动数据存储节点</p>
+<p>修改配置文件，修改内容如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># vim conf/config-storage.toml</span>
+<span class="c1">#</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;storage&quot;</span>
+<span class="p">[</span><span class="n">storage</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;storageNode1&quot;</span>
+<span class="c1"># 修改服务监听端口及对外服务地址</span>
+<span class="n">listenAddress</span> <span class="o">=</span> <span class="s2">&quot;:8122&quot;</span>
+<span class="n">publicAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8122&quot;</span>
+
+<span class="c1"># genkey创建的私钥</span>
+<span class="n">keyPath</span> <span class="o">=</span> <span class="s2">&quot;./keys&quot;</span>
+
+<span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">blockchain</span><span class="p">]</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;xchain&quot;</span>
+    <span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">blockchain</span><span class="o">.</span><span class="n">xchain</span><span class="p">]</span>
+        <span class="c1"># 助记词为用户部署区块链网络后，安装合约过程中创建的区块链账户，取值./ukeys/mnemonic</span>
+        <span class="n">mnemonic</span> <span class="o">=</span> <span class="s2">&quot;充 雄 孔 坝 低 狠 争 短 摸 拜 晨 造&quot;</span>
+        <span class="n">contractName</span> <span class="o">=</span> <span class="s2">&quot;paddlempc&quot;</span>
+        <span class="n">contractAccount</span> <span class="o">=</span> <span class="s2">&quot;XC1234567890123456@xuper&quot;</span>
+        <span class="n">chainAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:37101&quot;</span>
+        <span class="n">chainName</span> <span class="o">=</span> <span class="s2">&quot;xuper&quot;</span>
+
+    <span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">blockchain</span><span class="o">.</span><span class="n">fabric</span><span class="p">]</span>
+        <span class="n">configFile</span> <span class="o">=</span> <span class="s2">&quot;./config/fabric/config.yaml&quot;</span>
+        <span class="n">channelId</span> <span class="o">=</span> <span class="s2">&quot;mychannel&quot;</span>
+        <span class="n">chaincode</span> <span class="o">=</span> <span class="s2">&quot;mycc&quot;</span>
+        <span class="n">userName</span> <span class="o">=</span> <span class="s2">&quot;Admin&quot;</span>
+        <span class="n">orgName</span> <span class="o">=</span> <span class="s2">&quot;org1&quot;</span>
+
+<span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">mode</span><span class="p">]</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
+    <span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">local</span><span class="p">]</span>
+        <span class="n">rootPath</span> <span class="o">=</span> <span class="s2">&quot;./slices&quot;</span>
+
+<span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">monitor</span><span class="p">]</span>
+    <span class="n">challengingSwitch</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+    <span class="n">nodemaintainerSwitch</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+    <span class="n">fileclearInterval</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="p">[</span><span class="n">log</span><span class="p">]</span>
+<span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;debug&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./logs&quot;</span>
+</pre></div>
+</div>
+<p>其中，listenAddress和publicAddress 指定服务监听的地址及对外暴露的地址，blockchain配置中使用区块链网络部署时创建的账户助记词、合约账户及合约名，rootPath指定文件存储的本地路径。</p>
+<p>启动服务：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nohup ./xdb -c conf/config-storage.toml &gt; storage.log &amp;
+</pre></div>
+</div>
+</li>
+<li><p>启动数据持有节点</p>
+<p>修改配置文件，修改内容如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># vim conf/config-dataowner.toml</span>
+<span class="c1">#</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;dataOwner&quot;</span>
+<span class="p">[</span><span class="n">dataOwner</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dataOwnerNode1&quot;</span>
+<span class="c1"># 修改服务监听端口及对外服务地址</span>
+<span class="n">listenAddress</span> <span class="o">=</span> <span class="s2">&quot;:8121&quot;</span>
+<span class="n">publicAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8121&quot;</span>
+
+<span class="c1"># genkey创建的私钥</span>
+<span class="n">keyPath</span> <span class="o">=</span> <span class="s2">&quot;./keys&quot;</span>
+
+<span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">slicer</span><span class="p">]</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;simpleSlicer&quot;</span>
+    <span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">slicer</span><span class="o">.</span><span class="n">simpleSlicer</span><span class="p">]</span>
+        <span class="n">blockSize</span> <span class="o">=</span> <span class="mi">4194304</span>
+        <span class="n">queueSize</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">encryptor</span><span class="p">]</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;softEncryptor&quot;</span>
+    <span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">encryptor</span><span class="o">.</span><span class="n">softEncryptor</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
+
+<span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">challenger</span><span class="p">]</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;merkle&quot;</span>
+    <span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">challenger</span><span class="o">.</span><span class="n">pairing</span><span class="p">]</span>
+        <span class="n">maxIndexNum</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">sk</span> <span class="o">=</span> <span class="s2">&quot;Fudm9gDXNlEdCkieMid1WHIHd9K/M/CctBPlF/4y+AU=&quot;</span>
+        <span class="n">pk</span> <span class="o">=</span> <span class="s2">&quot;B60Vdoq4SVUpVRZf1FM7ImRXo/22q0ZjYMHlaB4HgUXMSsu+2iCrNkk3gROXOUDvB8zWMcBGCnBCAnb6N9WOaBPbKkYWnp/iodp0+GFWvW1DCnAYNV2+vdaFkHaezsqeDqRDsdqV2uG47PTE2xdkljSblWNgKhsHYp7LgCcbBWiMO3TcrzUdq+ETxfIu1Bi7AzSHHAj8oc7toGT0anrO9LPSDcde8rCdsptX5CLH7WvRF0AXrqhX4Mr7i+547qI3&quot;</span>
+        <span class="n">randu</span> <span class="o">=</span> <span class="s2">&quot;NA1xy6JCWWc8IB4x1CM4DCoxKTqEele6zqD8kCfuj5s=&quot;</span>
+        <span class="n">randv</span> <span class="o">=</span> <span class="s2">&quot;TV0J8YFWEsybwFdwm3DJvUHXx88YXkzK97Zpvj/tyGc=&quot;</span>
+
+    <span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">challenger</span><span class="o">.</span><span class="n">merkle</span><span class="p">]</span>
+        <span class="n">leveldbRoot</span> <span class="o">=</span> <span class="s2">&quot;./challenger&quot;</span>
+        <span class="n">shrinkSize</span> <span class="o">=</span> <span class="mi">500</span>
+        <span class="n">segmentSize</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">blockchain</span><span class="p">]</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;xchain&quot;</span>
+    <span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">blockchain</span><span class="o">.</span><span class="n">xchain</span><span class="p">]</span>
+        <span class="c1"># 助记词为用户部署区块链网络后，安装合约过程中创建的区块链账户，取值./ukeys/mnemonic</span>
+        <span class="n">mnemonic</span> <span class="o">=</span> <span class="s2">&quot;充 雄 孔 坝 低 狠 争 短 摸 拜 晨 造&quot;</span>
+        <span class="n">contractName</span> <span class="o">=</span> <span class="s2">&quot;paddlempc&quot;</span>
+        <span class="n">contractAccount</span> <span class="o">=</span> <span class="s2">&quot;XC1234567890123456@xuper&quot;</span>
+        <span class="n">chainAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:37101&quot;</span>
+        <span class="n">chainName</span> <span class="o">=</span> <span class="s2">&quot;xuper&quot;</span>
+
+    <span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">blockchain</span><span class="o">.</span><span class="n">fabric</span><span class="p">]</span>
+        <span class="n">configFile</span> <span class="o">=</span> <span class="s2">&quot;./config/fabric/config.yaml&quot;</span>
+        <span class="n">channelId</span> <span class="o">=</span> <span class="s2">&quot;mychannel&quot;</span>
+        <span class="n">chaincode</span> <span class="o">=</span> <span class="s2">&quot;mycc&quot;</span>
+        <span class="n">userName</span> <span class="o">=</span> <span class="s2">&quot;Admin&quot;</span>
+        <span class="n">orgName</span> <span class="o">=</span> <span class="s2">&quot;org1&quot;</span>
+
+<span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">copier</span><span class="p">]</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;random-copier&quot;</span>
+
+<span class="p">[</span><span class="n">dataOwner</span><span class="o">.</span><span class="n">monitor</span><span class="p">]</span>
+    <span class="n">challengingSwitch</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+    <span class="n">filemaintainerSwitch</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+    <span class="n">filemigrateInterval</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="p">[</span><span class="n">log</span><span class="p">]</span>
+<span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;debug&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./logs&quot;</span>
+</pre></div>
+</div>
+<p>其中，listenAddress和publicAddress 指定服务监听的地址及对外暴露的地址，blockchain配置中使用区块链网络部署时创建的账户助记词、合约账户及合约名。</p>
+<p>启动服务：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nohup ./xdb -c conf/config-dataowner.toml &gt; dataowner.log &amp;
+</pre></div>
+</div>
+<p><em>注意：一般构建 PaddleDTX 网络至少需要两方参与，对应两个计算任务执行节点，每个任务执行节点可以从一个或多个数据持有节点获取数据，这里为了说明方便启动一个数据持有节点，您也可以根据实际需求自行启动多个数据存储节点和数据持有节点；配置中的keyPath参数为节点的身份，不同keyPath即对应了不同的身份。</em></p>
+</li>
+<li><p>查看服务状态</p>
+<p>使用 xdb-cli 客户端执行如下命令，请求数据持有节点查看存储节点的在线状态：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./xdb-cli nodes list --host http://127.0.0.1:8121
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>部署Distributed AI</p>
+<p>一般多方安全计算至少由两个任务执行节点，所以这里部署两个任务执行节点。
+每一个 任务执行节点 都有一对公私钥，用来标识节点的账户，公私钥可以通过如下executor-cli的客户端命令进行获取：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./executor-cli key genkey -o ./keys
+</pre></div>
+</div>
+<p>请妥善保存您创建的公私钥对，在后续的配置及命令行使用时您将会频繁的用到它。</p>
+<p><em>注意: 任务执行节点的账户也是通过公私钥对来标明。任务发布后时，任务执行节点会向数据持有节点发起文件授权申请，数据持有节点可通过或拒绝样本文件授权申请。</em></p>
+<ol>
+<li><p>准备两个任务执行节点的配置</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd PaddleDTX/dai/
+$ cp -r output executor1
+$ cp -r output executor2
+</pre></div>
+</div>
+<p>需要分别修改对应的conf/config.toml文件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># executor1</span>
+<span class="n">listenAddress</span> <span class="o">=</span> <span class="s2">&quot;:8184&quot;</span>
+<span class="n">publicAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8184&quot;</span>
+<span class="c1"># genkey创建的私钥</span>
+<span class="n">keyPath</span> <span class="o">=</span> <span class="s2">&quot;./keys&quot;</span>
+
+<span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">storage</span><span class="p">]</span>
+    <span class="c1"># 定义模型存储的路径</span>
+    <span class="n">localModelStoragePath</span> <span class="o">=</span> <span class="s2">&quot;./models&quot;</span>
+	<span class="c1"># 定义模型评估结果的存储路径</span>
+	<span class="n">localEvaluationStoragePath</span> <span class="o">=</span> <span class="s2">&quot;./evalus&quot;</span>
+    <span class="c1"># 定义预测结果存储的方式，默认本地存储，如果用户采取XuperDB方式存储，则需提前生成数据持有节点客户端./ukeys并授权，同时创建预测结果存储的命名空间</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;Local&#39;</span>
+    <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">XuperDB</span><span class="p">]</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;http://127.0.0.1:8121&quot;</span>
+        <span class="n">keyPath</span> <span class="o">=</span> <span class="s2">&quot;./ukeys&quot;</span>
+        <span class="n">namespace</span> <span class="o">=</span> <span class="s2">&quot;mpc&quot;</span>
+    <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">Local</span><span class="p">]</span>
+        <span class="n">localPredictStoragePath</span> <span class="o">=</span> <span class="s2">&quot;./predictions&quot;</span>
+<span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">blockchain</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">blockchain</span><span class="o">.</span><span class="n">xchain</span><span class="p">]</span>
+        <span class="c1"># 助记词为用户部署区块链网络后，安装合约过程中创建的区块链账户，取值./ukeys/mnemonic</span>
+        <span class="n">mnemonic</span> <span class="o">=</span> <span class="s2">&quot;充 雄 孔 坝 低 狠 争 短 摸 拜 晨 造&quot;</span>
+        <span class="n">contractName</span> <span class="o">=</span> <span class="s2">&quot;paddlempc&quot;</span>
+        <span class="n">contractAccount</span> <span class="o">=</span> <span class="s2">&quot;XC1234567890123456@xuper&quot;</span>
+        <span class="n">chainAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:37101&quot;</span>
+        <span class="n">chainName</span> <span class="o">=</span> <span class="s2">&quot;xuper&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># executor2</span>
+<span class="n">listenAddress</span> <span class="o">=</span> <span class="s2">&quot;:8185&quot;</span>
+<span class="n">publicAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8185&quot;</span>
+<span class="c1"># genkey创建的私钥</span>
+<span class="n">keyPath</span> <span class="o">=</span> <span class="s2">&quot;./keys&quot;</span>
+
+<span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">storage</span><span class="p">]</span>
+    <span class="c1"># 定义模型存储的路径</span>
+    <span class="n">localModelStoragePath</span> <span class="o">=</span> <span class="s2">&quot;./models&quot;</span>
+	<span class="c1"># 定义模型评估结果的存储路径</span>
+	<span class="n">localEvaluationStoragePath</span> <span class="o">=</span> <span class="s2">&quot;./evalus&quot;</span>
+    <span class="c1"># 定义预测结果存储的方式，默认本地存储，如果用户采取XuperDB方式存储，则需提前生成数据持有节点客户端./ukeys并授权，同时创建预测结果存储的命名空间</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;Local&#39;</span>
+    <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">XuperDB</span><span class="p">]</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;http://127.0.0.1:8121&quot;</span>
+        <span class="n">keyPath</span> <span class="o">=</span> <span class="s2">&quot;./ukeys&quot;</span>
+        <span class="n">namespace</span> <span class="o">=</span> <span class="s2">&quot;mpc&quot;</span>
+    <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">Local</span><span class="p">]</span>
+        <span class="n">localPredictStoragePath</span> <span class="o">=</span> <span class="s2">&quot;./predictions&quot;</span>
+<span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">blockchain</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">blockchain</span><span class="o">.</span><span class="n">xchain</span><span class="p">]</span>
+        <span class="c1"># 助记词为用户部署区块链网络后，安装合约过程中创建的区块链账户，取值./ukeys/mnemonic</span>
+        <span class="n">mnemonic</span> <span class="o">=</span> <span class="s2">&quot;充 雄 孔 坝 低 狠 争 短 摸 拜 晨 造&quot;</span>
+        <span class="n">contractName</span> <span class="o">=</span> <span class="s2">&quot;paddlempc&quot;</span>
+        <span class="n">contractAccount</span> <span class="o">=</span> <span class="s2">&quot;XC1234567890123456@xuper&quot;</span>
+        <span class="n">chainAddress</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:37101&quot;</span>
+        <span class="n">chainName</span> <span class="o">=</span> <span class="s2">&quot;xuper&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>启动服务</p>
+<p>分别在对应文件夹下执行如下命令，启动任务执行节点：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nohup ./executor &amp;
+</pre></div>
+</div>
+<p>通过命令查看有两个 executor 的进程，则启动成功：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ps -aux | grep executor
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+<section id="docker">
+<h2><span class="section-number">2.2. </span>通过 docker 安装<a class="headerlink" href="#docker" title="永久链接至标题">#</a></h2>
+<section id="id6">
+<h3><span class="section-number">2.2.1. </span>环境准备<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
+<p>PaddleDTX也支持使用 docker 进行编译、安装和使用，您需要准备如下环境：</p>
+<ul class="simple">
+<li><p>docker, 推荐版本18.03+ <a class="reference external" href="https://docs.docker.com/get-docker/">点击下载安装 docker</a></p></li>
+<li><p>docker-compose, 推荐版本1.26.0+ <a class="reference external" href="https://github.com/docker/compose/releases">点击下载安装 docker-compose</a></p></li>
+</ul>
+</section>
+<section id="id7">
+<h3><span class="section-number">2.2.2. </span>制作镜像<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
+<ol>
+<li><p>制作XuperDB镜像</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd PaddleDTX/xdb
+$ sh build_image.sh
+</pre></div>
+</div>
+<p>产出为数据存储节点和数据持有节点两个镜像, 镜像名和版本号分别为：</p>
+<ul class="simple">
+<li><p>registry.baidubce.com/paddledtx/xdb-storage:1.1</p></li>
+<li><p>registry.baidubce.com/paddledtx/xdb-dataowner:1.1
+实际上他们是使用不同镜像名的同一个镜像，可以通过修改 <em>build_image.sh</em> 脚本来修改镜像名和版本号。</p></li>
+</ul>
+</li>
+<li><p>制作 Distributed AI 镜像</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd PaddleDTX/dai
+$ sh build_image.sh
+</pre></div>
+</div>
+<p>产出镜像名和版本号为 <em>registry.baidubce.com/paddledtx/paddledtx-dai:1.1</em> ，可以通过修改 <em>build_image.sh</em> 脚本来修改镜像名和版本号。</p>
+</li>
+<li><p>编译合约</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export contractName=&#39;paddlempc&#39;
+$ docker run -it --rm \
+  -v $(dirname ${PWD}):/workspace \
+  -v ~/.ssh:/root/.ssh \
+  -w /workspace \
+  -e GONOSUMDB=* \
+  -e GO111MODULE=on \
+  golang:1.13.4 sh -c &quot;cd dai &amp;&amp; go build -o ../testdata/blockchain/contract/$contractName ./blockchain/xchain/contract&quot;
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id8">
+<h3><span class="section-number">2.2.3. </span>网络部署<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
+<ol>
+<li><p>部署区块链网络</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd PaddleDTX/testdata/blockchain
+$ docker-compose -f docker-compose.yml up -d
+</pre></div>
+</div>
+<p>搭建了三个节点的区块链网络，对应的区块链相关配置在文件夹 blockchain/xchain1/conf、blockchain/xchain2/conf、blockchain/xchain3/conf 下，需要调整配置时在网络拉起前进行修改。</p>
+<p>可以通过容器中的 xchain-cli客户端进行区块链上的一些操作，例如创建合约账户及安装智能合约。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 定义合约账户和合约名称
+$ export contractAccount=&#39;1234567890123456&#39;
+$ export contractName=&#39;paddlempc&#39;
+
+# 创建区块链账户, 并转 token
+# 这里也可以使用已有的区块链账户, 文章后面的修改区块链配置可以不操作
+$ docker exec -it xchain1.node.com sh -c &quot;./xchain-cli account newkeys --strength 1  -o user&quot;
+$ export address=`cat user/address`
+$ docker exec -it xchain1.node.com sh -c &quot;./xchain-cli transfer --to $address --amount 1000000000000&quot;
+
+# 创建合约账户
+$ docker exec -it xchain1.node.com sh -c &quot;./xchain-cli account new --account $contractAccount --fee 1000 --keys ./user&quot;
+
+# 给合约账户转 token
+$ docker exec -it xchain1.node.com sh -c &quot;./xchain-cli transfer --to XC${contractAccount}@xuper --amount 100000000000 --keys ./user&quot;
+
+# 将合约拷贝到容器中
+$ docker cp ./contract/$contractName xchain1.node.com:/home/work/xchain/$contractName
+
+# 安装合约
+$ docker exec -it xchain1.node.com sh -c &quot;./xchain-cli native deploy --account XC${contractAccount}@xuper --runtime go -a &#39;{\&quot;creator\&quot;:\&quot;XC${contractAccount}@xuper\&quot;}&#39; --cname $contractName ./contract/$contractName --fee 19267894 --keys ./user --fee 19597986&quot;
+
+# 查询合约安装的状态
+$ docker exec -it xchain1.node.com sh -c &quot;./xchain-cli contract query $contractName&quot;
+</pre></div>
+</div>
+</li>
+<li><p>部署 XuperDB</p>
+<p>数据持有节点将自己的隐私数据进行加密、切分、副本复制后分发到存储节点，存储节点是数据存储的物理节点。这里部署三个存储节点和两个数据持有节点, 两个数据节点模拟分别提供部分数据的两方。</p>
+<p>修改配置文件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vim PaddleDTX/testdata/xdb/data1/conf/config.toml
+$ vim PaddleDTX/testdata/xdb/data2/conf/config.toml
+
+# 使用在区块链部署时创建的合约账户、合约以及助记词
+[dataOwner.blockchain]
+type = &quot;xchain&quot;
+[dataOwner.blockchain.xchain]
+    mnemonic = &quot;提 现 详 责 腐 贪 沉 回 涨 谓 献 即&quot;
+    contractName = &quot;paddlempc&quot;
+    contractAccount = &quot;XC1234567890123456@xuper&quot;
+    chainAddress = &quot;xchain1.node.com:37101&quot;
+    chainName = &quot;xuper&quot;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vim xdb/storage1/conf/config.toml
+$ vim xdb/storage2/conf/config.toml
+$ vim xdb/storage3/conf/config.toml
+
+# 使用在区块链部署时创建的合约账户、合约以及助记词
+[storage.blockchain]
+type = &quot;xchain&quot;
+[storage.blockchain.xchain]
+    mnemonic = &quot;提 现 详 责 腐 贪 沉 回 涨 谓 献 即&quot;
+    contractName = &quot;paddlempc&quot;
+    contractAccount = &quot;XC1234567890123456@xuper&quot;
+    chainAddress = &quot;xchain1.node.com:37101&quot;
+    chainName = &quot;xuper&quot;
+</pre></div>
+</div>
+<p>启动服务：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd PaddleDTX/testdata/xdb
+$ docker-compose -f docker-compose.yml up -d
+</pre></div>
+</div>
+<p>查看存储节点列表：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker exec -it dataowner1.node.com sh -c &quot;./xdb-cli nodes list --host http://dataowner1.node.com:80&quot;
+</pre></div>
+</div>
+<p><em>注意：如果用户想启动基于fabric的XuperDB服务，可参考<a class="reference external" href="https://github.com/PaddlePaddle/PaddleDTX/tree/master/xdb/scripts">XuperDB服务启动和命令使用说明</a>。</em></p>
+</li>
+<li><p>部署 Distributed AI</p>
+<p>部署两个任务执行节点，模拟由两方组成的多方安全计算网络，两个任务执行节点分别对应不同的数据持有节点。</p>
+<p>修改配置文件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vim PaddleDTX/testdata/executor/node1/conf/config.toml
+$ vim PaddleDTX/testdata/executor/node2/conf/config.toml
+# 使用在区块链部署时创建的合约账户、合约以及助记词
+[executor.blockchain]
+type = &#39;xchain&#39;
+[executor.blockchain.xchain]
+    mnemonic = &quot;提 现 详 责 腐 贪 沉 回 涨 谓 献 即&quot;
+    contractName = &quot;paddlempc&quot;
+    contractAccount = &quot;XC1234567890123456@xuper&quot;
+    chainAddress = &quot;xchain1.node.com:37101&quot;
+    chainName = &quot;xuper&quot;
+</pre></div>
+</div>
+<p>启动服务：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd PaddleDTX/testdata/executor
+$ docker-compose -f docker-compose.yml up -d
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="quickstart.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>快速安装</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="client.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>客户端工具</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By baidu<br/>
+  
+      &copy; Copyright 2021, baidu.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
